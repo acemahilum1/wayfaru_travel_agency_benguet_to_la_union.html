@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayfaru Travel Agency | Benguet to La Union Tour</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        pine: {
+                            50: '#f0fdf4',
+                            600: '#166534',
+                            750: '#1b4d3e',
+                            900: '#0f2922',
+                        },
+                        coast: {
+                            50: '#ecfeff',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            900: '#164e63',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15, 41, 34, 0.9) 0%, rgba(8, 145, 178, 0.75) 100%), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .butterfly-glow {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(6, 182, 212, 0.4); }
+            50% { transform: scale(1.02); box-shadow: 0 0 35px rgba(22, 101, 52, 0.7); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-cyan-500 selection:text-white">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-pine-900/95 backdrop-blur-md text-white border-b border-pine-750/50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-cyan-500 to-pine-600 flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300">
+                    <i class="fa-solid fa-plane-departure text-white text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-wider block text-white">WAYFARU</span>
+                    <span class="text-xs text-cyan-300 tracking-widest uppercase font-medium">Travel Agency</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About Us</a>
+                <a href="#itinerary" class="hover:text-cyan-400 transition-colors">Itinerary</a>
+                <a href="#accommodation" class="hover:text-cyan-400 transition-colors">Stays & Transit</a>
+                <a href="#inclusions" class="hover:text-cyan-400 transition-colors">Inclusions</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="tel:09429183013" class="text-xs font-semibold bg-pine-750/80 px-3 py-2 rounded-full border border-cyan-500/30 text-cyan-300 hover:bg-pine-750 transition-colors">
+                    <i class="fa-solid fa-phone mr-1.5"></i> 09429183013
+                </a>
+                <button onclick="openBookingModal()" class="bg-gradient-to-r from-cyan-500 to-emerald-600 text-white font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:opacity-95 transition-all text-sm transform hover:-translate-y-0.5">
+                    Book Now ₱8,300
+                </button>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-cyan-300 focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-pine-900 border-t border-pine-750 px-6 py-6 space-y-4">
+            <a href="#about" class="block text-lg hover:text-cyan-400 font-medium">About Us</a>
+            <a href="#itinerary" class="block text-lg hover:text-cyan-400 font-medium">Itinerary</a>
+            <a href="#accommodation" class="block text-lg hover:text-cyan-400 font-medium">Stays & Transit</a>
+            <a href="#inclusions" class="block text-lg hover:text-cyan-400 font-medium">Inclusions</a>
+            <a href="#contact" class="block text-lg hover:text-cyan-400 font-medium">Contact</a>
+            <div class="pt-4 border-t border-pine-750 flex flex-col space-y-3">
+                <a href="tel:09429183013" class="text-sm font-semibold text-cyan-300"><i class="fa-solid fa-phone mr-2"></i> 09429183013</a>
+                <button onclick="openBookingModal()" class="w-full bg-gradient-to-r from-cyan-500 to-emerald-600 text-white font-bold py-3 rounded-xl shadow-md text-center">
+                    Book Now ₱8,300
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-gradient min-h-screen flex items-center justify-center text-white relative pt-24 pb-16 px-4 overflow-hidden">
+        <div class="absolute inset-0 bg-black/30 backdrop-blur-[2px]"></div>
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center space-x-2 bg-pine-900/80 border border-cyan-500/40 px-4 py-2 rounded-full text-cyan-300 text-sm font-semibold backdrop-blur-md">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>Arellano University - Jose Rizal Campus Simulated Enterprise</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
+                    Benguet to <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-300">La Union</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-cyan-100 max-w-2xl font-light italic">
+                    "From Misty Peaks to Sunny Shores — Experience Benguet & La Union"
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                    <button onclick="openBookingModal()" class="bg-gradient-to-r from-cyan-500 to-emerald-600 hover:from-cyan-600 hover:to-emerald-700 text-white font-bold px-8 py-4 rounded-2xl shadow-xl transition-all transform hover:-translate-y-1 text-base flex items-center justify-center space-x-3">
+                        <span>Secure Your Slot</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <a href="#itinerary" class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md text-white font-semibold px-8 py-4 rounded-2xl transition-all text-base flex items-center justify-center space-x-2">
+                        <span>Explore Itinerary</span>
+                        <i class="fa-solid fa-list-check"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Price & Package Badge Card -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="butterfly-glow bg-gradient-to-br from-pine-900/95 to-coast-900/95 border-2 border-cyan-400/50 p-8 rounded-3xl backdrop-blur-xl shadow-2xl max-w-md w-full text-center relative">
+                    <div class="absolute -top-4 -right-4 bg-cyan-400 text-pine-900 font-extrabold text-xs px-4 py-1.5 rounded-full shadow-lg uppercase tracking-wider">
+                        All-Inclusive Promo
+                    </div>
+                    <div class="w-16 h-16 bg-cyan-500/20 border border-cyan-400/40 rounded-2xl flex items-center justify-center mx-auto mb-4 text-cyan-300 text-3xl">
+                        <i class="fa-solid fa-ticket"></i>
+                    </div>
+                    <span class="text-cyan-300 font-semibold uppercase tracking-widest text-xs block mb-1">Duration & Rate</span>
+                    <h2 class="text-4xl font-black text-white mb-2">4 Days / 3 Nights</h2>
+                    <div class="text-5xl font-extrabold text-emerald-400 my-4 tracking-tight">
+                        ₱8,300<span class="text-lg font-medium text-slate-300">.00</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mb-6 uppercase tracking-wider">Per head • Private Van • Hotel & Resort Stays</p>
+                    <button onclick="openBookingModal()" class="w-full bg-cyan-500 hover:bg-cyan-600 text-pine-900 font-extrabold py-3.5 rounded-xl shadow-lg transition-colors text-base">
+                        Book This Tour Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyan-600 font-bold uppercase tracking-widest text-xs bg-cyan-50 px-3 py-1.5 rounded-full border border-cyan-200">Why Choose Wayfaru</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-pine-900 mt-3 mb-4">Navigating Your Dreams Like a Butterfly</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-cyan-500 to-emerald-500 mx-auto rounded-full"></div>
+                <p class="text-slate-600 mt-4 leading-relaxed text-base sm:text-lg">
+                    Wayfaru Travel Agency is an emerging simulated tourism enterprise dedicated to providing exceptional, accessible, and meaningful travel experiences. Inspired by the graceful and adventurous movement of a <em>paru-paro</em> (butterfly) navigating from one destination to another, our agency specializes in crafting seamless journeys that grant every modern traveler the freedom to explore.
+                </p>
+            </div>
+
+            <!-- Mission & Vision Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-pine-50 border border-pine-600/20 p-8 sm:p-10 rounded-3xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pine-600/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
+                    <div class="w-12 h-12 bg-pine-600 text-white rounded-2xl flex items-center justify-center text-xl mb-6 shadow-md">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-pine-900 mb-4">Our Vision</h3>
+                    <p class="text-slate-700 leading-relaxed">
+                        To be a trusted travel companion that inspires every Filipino wayfarer to freely explore the world, discover meaningful experiences, and create unforgettable journeys—like a paru-paro that flies from one destination to another.
+                    </p>
+                </div>
+
+                <div class="bg-cyan-50 border border-cyan-600/20 p-8 sm:p-10 rounded-3xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-600/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
+                    <div class="w-12 h-12 bg-cyan-600 text-white rounded-2xl flex items-center justify-center text-xl mb-6 shadow-md">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-pine-900 mb-4">Our Mission</h3>
+                    <p class="text-slate-700 leading-relaxed">
+                        Wayfaru is committed to providing affordable, enjoyable, and memorable travel experiences through well-planned tours, reliable services, and personalized travel assistance. We aim to help every traveler explore new destinations with freedom, comfort, and the adventurous spirit of a paru-paro.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="itinerary" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyan-400 font-bold uppercase tracking-widest text-xs bg-cyan-950/80 px-3 py-1.5 rounded-full border border-cyan-500/30">4-Day Adventure</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-4">Comprehensive Tour Itinerary</h2>
+                <p class="text-slate-300">From the misty heights of Benguet to the sun-kissed beaches of La Union.</p>
+            </div>
+
+            <!-- Day Tabs Container -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button onclick="switchDay(1)" id="day-btn-1" class="day-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-cyan-500 text-pine-900 shadow-lg transition-all">Day 1: Benguet Highlights</button>
+                <button onclick="switchDay(2)" id="day-btn-2" class="day-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Day 2: Culture & Nature</button>
+                <button onclick="switchDay(3)" id="day-btn-3" class="day-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Day 3: Coastal Exploration</button>
+                <button onclick="switchDay(4)" id="day-btn-4" class="day-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Day 4: History & Heritage</button>
+            </div>
+
+            <!-- Day 1 Content -->
+            <div id="day-content-1" class="day-content space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 1 • Stop 1</span>
+                        <h3 class="text-2xl font-bold text-white">Valley of Colors (Stobosa)</h3>
+                        <p class="text-slate-300 leading-relaxed">Walk across the scenic suspension bridge for amazing views and taste famous creamy strawberry taho — a Baguio must-try!</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Scenic suspension bridge walk</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Famous strawberry taho tasting</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Valley of Colors (Stobosa).jpg" alt="Valley of Colors" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/166534/ffffff?text=Valley+of+Colors'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 1 • Stop 2</span>
+                        <h3 class="text-2xl font-bold text-white">Tam-awan Village</h3>
+                        <p class="text-slate-300 leading-relaxed">Immerse in rich Cordilleran culture, art, and stunning mountain scenery. Enjoy optional portrait sketching to take home your own art keepsake.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Rich Cordilleran art & traditional huts</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Optional portrait sketching keepsake</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Tam-awan Village.jpg" alt="Tam-awan Village" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/0f2922/ffffff?text=Tam-awan+Village'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 1 • Stop 3</span>
+                        <h3 class="text-2xl font-bold text-white">Mines View Observation Deck</h3>
+                        <p class="text-slate-300 leading-relaxed">Breathtaking panoramic views of Cordillera mountains and valleys. Fun optional traditional costume rental for photos.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Panoramic Cordillera mountain views</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Optional traditional costume rentals</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="2707d8d66c0352b5aa967b30047c4d51.jpg" alt="Mines View Deck" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/0f2922/ffffff?text=Mines+View+Deck'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 1 • Stop 4</span>
+                        <h3 class="text-2xl font-bold text-white">Wright Park and The Mansion</h3>
+                        <p class="text-slate-300 leading-relaxed">Lush pine trees, peaceful gardens, and iconic royal-style gate. Optional horseback riding fun for all ages.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Scenic pine tree walks & royal gate</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Optional horseback riding adventures</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Wright Park and The Mansion.jpg" alt="Wright Park and The Mansion" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/166534/ffffff?text=Wright+Park'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 1 • Stop 5</span>
+                        <h3 class="text-2xl font-bold text-white">Baguio Night Market</h3>
+                        <p class="text-slate-300 leading-relaxed">Lively street food scene — taste local favorites, great ukay-ukay finds & affordable handmade souvenirs. Best way to end the day with food, fun & memories.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Authentic local street food tasting</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Ukay-ukay shopping and souvenirs</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="baguio-night-market.jpg" alt="Baguio Night Market" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/0f2922/ffffff?text=Baguio+Night+Market'">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Day 2 Content -->
+            <div id="day-content-2" class="day-content space-y-8 hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 2 • Stop 1</span>
+                        <h3 class="text-2xl font-bold text-white">La Trinidad Strawberry Farm</h3>
+                        <p class="text-slate-300 leading-relaxed">Pick your own fresh strawberries straight from the fields! Perfect for family fun and fresh pasalubong.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Fresh strawberry picking experience</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Local pasalubong shopping</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="La Trinidad Strawberry Farm.jpg" alt="La Trinidad Strawberry Farm" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/166534/ffffff?text=Strawberry+Farm'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 2 • Stop 2</span>
+                        <h3 class="text-2xl font-bold text-white">Igorot Village & Nature Trails</h3>
+                        <p class="text-slate-300 leading-relaxed">Deep dive into authentic Cordilleran traditions & architecture. Learn about local tribes and their rich history, plus peaceful walks along Pine Forest Yellow Trail and Mt. Tayawan Agri-Tourist Park.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Cultural immersion & tribal architecture</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Pine forest yellow trail & agri-tourist park</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Igorot Village & Nature Trails.jpg" alt="Igorot Village and Pine Forest" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/0f2922/ffffff?text=Igorot+Village'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 2 • Stop 3</span>
+                        <h3 class="text-2xl font-bold text-white">Pine Forest(yellow Trail)</h3>
+                        <p class="text-slate-300 leading-relaxed">Peaceful, easy walking trails — great for relaxing & unwinding</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Nature's own stress reliever — breathe, slow down, recharge</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Suitable for all ages & pet-friendly too!</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Pine Forest(yellow Trail).jpg" alt="Pine Forest(yellow Trail)" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/0f2922/ffffff?text=Igorot+Village'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 2 • Stop 4</span>
+                        <h3 class="text-2xl font-bold text-white">Mt. Tayawan Agri-Tourist Park</h3>
+                        <p class="text-slate-300 leading-relaxed">Peaceful, easy walking trails — great for relaxing & unwinding</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Nature's own stress reliever — breathe, slow down, recharge</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Suitable for all ages & pet-friendly too!</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Mt. Tayawan Agri-Tourist Park.jpg" alt="Pine Forest(yellow Trail)" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/0f2922/ffffff?text=Igorot+Village'">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Day 3 Content -->
+            <div id="day-content-3" class="day-content space-y-8 hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 3 • Stop 1</span>
+                        <h3 class="text-2xl font-bold text-white">Ma-cho Temple</h3>
+                        <p class="text-slate-300 leading-relaxed">Philippines' first and only 7-tiered Taoist temple — truly one-of-a-kind. Golden roofs, peaceful gardens, shared heritage. Everyone's welcome! Dedicated to Mazu, Goddess of Travelers, to bless your journey.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> 7-tiered magnificent Taoist temple architecture</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Peaceful gardens & panoramic sea views</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Ma-cho Temple.jpg" alt="Ma-cho Temple" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/164e63/ffffff?text=Ma-cho+Temple'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 3 • Stop 2</span>
+                        <h3 class="text-2xl font-bold text-white">Gapuz Grapes Farm</h3>
+                        <p class="text-slate-300 leading-relaxed">Boodle fight under vines, unique dining experience among the vineyards. Grape juice, wine & local products; great pasalubong too! Harvest fresh grapes yourself.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Vineyard dining & grape harvesting</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Local wine & fresh grape tasting</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Gapuz Grapes Farm.jpg" alt="Gapuz Grapes Farm" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/164e63/ffffff?text=Grapes+Farm'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 3 • Stop 3</span>
+                        <h3 class="text-2xl font-bold text-white">San Juan Beach</h3>
+                        <p class="text-slate-300 leading-relaxed">Surfing Capital of the North! Waves for every level. Golden shores to swim, relax, play, or just lounge. Easy escape from Manila for pure coastal joy.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> World-class surfing & golden sand shores</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Sunset lounging & coastal vibe</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="San Juan Beach" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/0891b2/ffffff?text=San+Juan+Beach'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 3 • Stop 4</span>
+                        <h3 class="text-2xl font-bold text-white">Pindangan Ruins</h3>
+                        <p class="text-slate-300 leading-relaxed">The oldest Spanish-era stone church in La Union. A born-when-two-coastal-communities-joined landmark with peaceful sanctuary, history, and calm timeless beauty.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Historic Spanish-era stone architecture</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Serene and timeless sanctuary grounds</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Pindangan Ruins.jpg" alt="Pindangan Ruins" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/164e63/ffffff?text=Pindangan+Ruins'">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Day 4 Content -->
+            <div id="day-content-4" class="day-content space-y-8 hidden">
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 4 • Stop 1</span>
+                        <h3 class="text-2xl font-bold text-white">Baluarte Watchtower</h3>
+                        <p class="text-slate-300 leading-relaxed">Coastal guardian and original lookout against pirates & invaders; served as WWII communication post too. The symbol of Luna's resilience with pebble beach perch and stunning sunset & photo spot.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Historic coastal watchtower structure</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Pebble beach perch & sunset viewpoint</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Baluarte Watchtower.jpg" alt="Baluarte Watchtower" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/0891b2/ffffff?text=Baluarte+Watchtower'">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8">
+                    <div class="space-y-4">
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider bg-cyan-950 px-3 py-1 rounded-md">Day 4 • Stop 2</span>
+                        <h3 class="text-2xl font-bold text-white">Bahay na Bato</h3>
+                        <p class="text-slate-300 leading-relaxed">Open-air art gallery — whimsical stone & wood sculptures throughout the grounds, designed by artist Bong Kim. A 2-storey museum from antique displays, pebble-mosaic flooring, and a stunning panoramic deck overlooking the sea.</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Open-air art gallery & stone sculptures</li>
+                            <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> 2-storey museum overlooking the sea</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64 sm:h-80">
+                        <img src="Bahay na Bato.jpg" alt="Bahay na Bato" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/164e63/ffffff?text=Bahay+na+Bato'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="accommodation" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-pine-600 font-bold uppercase tracking-widest text-xs bg-pine-50 px-3 py-1.5 rounded-full border border-pine-200">Comfort & Transit</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-pine-900 mt-3 mb-4">Accommodation & Transportation</h2>
+                <p class="text-slate-600">Travel in absolute comfort and stay in top-tier hotels and private resorts.</p>
+            </div>
+
+            <!-- Transportation Highlight -->
+            <div class="bg-gradient-to-r from-pine-900 to-coast-900 text-white p-8 rounded-3xl mb-12 shadow-xl flex flex-col md:flex-row items-center justify-between">
+                <div class="space-y-3 mb-6 md:mb-0">
+                    <span class="text-cyan-400 font-bold uppercase text-xs tracking-wider bg-white/10 px-3 py-1 rounded-full">Transportation Details</span>
+                    <h3 class="text-2xl font-bold">Private Van Transfer</h3>
+                    <p class="text-slate-300 max-w-xl text-sm leading-relaxed">Enjoy comfortable, air-conditioned private van transportation throughout your 4D/3N journey from Benguet mountain passes to La Union shores.</p>
+                </div>
+                <div class="w-20 h-20 bg-cyan-500/20 border border-cyan-400/40 rounded-2xl flex items-center justify-center text-cyan-300 text-3xl shadow-inner">
+                    <i class="fa-solid fa-van-shuttle"></i>
+                </div>
+            </div>
+
+            <!-- Accommodation Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Hotel Supreme -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="Hotel Supreme Convention Plaza.jpg" alt="Hotel Supreme" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x500/0f2922/ffffff?text=Hotel+Supreme'">
+                            <span class="absolute top-4 left-4 bg-pine-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md">Baguio Stay</span>
+                        </div>
+                        <div class="p-8 space-y-4">
+                            <h3 class="text-2xl font-bold text-pine-900">Hotel Supreme Convention Plaza</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Baguio's largest hotel convention center with spacious rooms & grand ballroom.</p>
+                            <ul class="space-y-2 text-sm text-slate-700">
+                                <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Clean, cozy rooms with free WiFi & smart TV</li>
+                                <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Mountain views & complete amenities</li>
+                                <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> Perfect for groups — family rooms, PWD-friendly</li>
+                                <li><i class="fa-solid fa-check text-emerald-600 mr-2"></i> 24/7 accessible location</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kaykayo Villa -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="h-56 overflow-hidden relative">
+                            <img src="Kaykayo Private Villa Resort.jpg" alt="Kaykayo Villa" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x500/164e63/ffffff?text=Kaykayo+Villa'">
+                            <span class="absolute top-4 left-4 bg-coast-900/90 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md">Resort Stay</span>
+                        </div>
+                        <div class="p-8 space-y-4">
+                            <h3 class="text-2xl font-bold text-pine-900">Kaykayo Private Villa Resort</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Exclusive private use — the whole villa & resort is yours only!</p>
+                            <ul class="space-y-2 text-sm text-slate-700">
+                                <li><i class="fa-solid fa-check text-cyan-600 mr-2"></i> 6 bedrooms, fits up to 25 guests</li>
+                                <li><i class="fa-solid fa-check text-cyan-600 mr-2"></i> Great for big groups & team buildings</li>
+                                <li><i class="fa-solid fa-check text-cyan-600 mr-2"></i> Free breakfast option, spacious dining & outdoor event spaces</li>
+                                <li><i class="fa-solid fa-check text-cyan-600 mr-2"></i> Pet-friendly, quiet, near San Juan beach & La Union spots</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inclusions" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyan-600 font-bold uppercase tracking-widest text-xs bg-cyan-50 px-3 py-1.5 rounded-full border border-cyan-200">Transparency</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-pine-900 mt-3 mb-4">Inclusions & Exclusions</h2>
+                <p class="text-slate-600">Everything you need to know before embarking on your journey.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Inclusions -->
+                <div class="bg-emerald-50/70 border border-emerald-200 p-8 rounded-3xl shadow-sm">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-pine-900">Inclusions</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fa-solid fa-hotel text-emerald-600 mt-1"></i>
+                            <div><strong>Hotel Accommodation</strong> — Premium stays in Baguio & La Union</div>
+                        </li>
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fa-solid fa-van-shuttle text-emerald-600 mt-1"></i>
+                            <div><strong>Transportation</strong> — Private air-conditioned van transfers</div>
+                        </li>
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fa-solid fa-ticket text-emerald-600 mt-1"></i>
+                            <div><strong>Entrance Fees</strong> — All standard attraction passes included</div>
+                        </li>
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fa-solid fa-user-tie text-emerald-600 mt-1"></i>
+                            <div><strong>Tour Guide</strong> — Professional local guide throughout the trip</div>
+                        </li>
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fa-solid fa-shield-heart text-emerald-600 mt-1"></i>
+                            <div><strong>Travel Insurance</strong> — Comprehensive coverage for peace of mind</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Exclusions -->
+                <div class="bg-rose-50/70 border border-rose-200 p-8 rounded-3xl shadow-sm">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-rose-600 text-white rounded-xl flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-circle-xmark"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-pine-900">Exclusions</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fa-solid fa-wallet text-rose-600 mt-1"></i>
+                            <div><strong>Personal Expenses</strong> — Souvenirs, shopping, and incidental costs</div>
+                        </li>
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fa-solid fa-utensils text-rose-600 mt-1"></i>
+                            <div><strong>Meals</strong> — Lunch, dinner, and personal snacks (gives you freedom to try local food spots!)</div>
+                        </li>
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fa-solid fa-person-hiking text-rose-600 mt-1"></i>
+                            <div><strong>Optional Tours & Activities</strong> — Horseback riding, costume rentals, or extra personal excursions</div>
+                        </li>
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fa-solid fa-circle-exclamation text-rose-600 mt-1"></i>
+                            <div><strong>Other Expenses</strong> — Anything not explicitly mentioned in the inclusions list</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-cyan-400 font-bold uppercase tracking-widest text-xs bg-cyan-950 px-3 py-1.5 rounded-full border border-cyan-500/30">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">Ready to Fly With Wayfaru?</h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        Have questions or ready to book your 4D/3N Benguet to La Union adventure? Reach out to our team today through our official channels.
+                    </p>
+                    
+                    <div class="space-y-4 pt-4">
+                        <a href="https://facebook.com" target="_blank" class="flex items-center space-x-4 bg-slate-800 hover:bg-slate-750 border border-slate-700 p-4 rounded-2xl transition-colors">
+                            <div class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase font-semibold block">Facebook Page</span>
+                                <span class="text-white font-bold text-lg">WAYFARU Travel Agency</span>
+                            </div>
+                        </a>
+
+                        <a href="mailto:WAYFARUTravelAgency@gmail.com" class="flex items-center space-x-4 bg-slate-800 hover:bg-slate-750 border border-slate-700 p-4 rounded-2xl transition-colors">
+                            <div class="w-12 h-12 bg-cyan-600 text-white rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase font-semibold block">Email Address</span>
+                                <span class="text-white font-bold text-base sm:text-lg">WAYFARUTravelAgency@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <a href="tel:09429183013" class="flex items-center space-x-4 bg-slate-800 hover:bg-slate-750 border border-slate-700 p-4 rounded-2xl transition-colors">
+                            <div class="w-12 h-12 bg-emerald-600 text-white rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase font-semibold block">Contact Number</span>
+                                <span class="text-white font-bold text-lg">09429183013</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Inquiry Form -->
+                <div class="lg:col-span-6 bg-slate-800 border border-slate-700 p-8 sm:p-10 rounded-3xl shadow-2xl">
+                    <h3 class="text-2xl font-bold text-white mb-2">Send an Inquiry / Booking</h3>
+                    <p class="text-slate-400 text-sm mb-6">Fill out the form below and our reservation team will get back to you promptly.</p>
+                    
+                    <form onsubmit="handleInquiry(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Full Name</label>
+                            <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="Juan dela Cruz">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Email</label>
+                                <input type="email" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="juan@gmail.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Phone Number</label>
+                                <input type="tel" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="09123456789">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Number of Travelers</label>
+                                <select class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                                    <option>1 Person (₱8,300)</option>
+                                    <option>2 Persons (₱16,600)</option>
+                                    <option>3 Persons (₱24,900)</option>
+                                    <option>4+ Persons (Group Package)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Preferred Date</label>
+                                <input type="date" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Special Requests or Notes</label>
+                            <textarea rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="Dietary restrictions, preferred room setup, etc."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-emerald-600 hover:opacity-95 text-white font-bold py-4 rounded-xl shadow-lg transition-all text-base">
+                            Submit Reservation Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-pine-900 text-slate-400 py-12 border-t border-pine-750">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 to-pine-600 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-plane-departure text-sm"></i>
+                </div>
+                <div>
+                    <span class="text-white font-bold tracking-wider block">WAYFARU TRAVEL AGENCY</span>
+                    <span class="text-xs text-cyan-400">Arellano University - Jose Rizal Campus</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-400">© 2026 Wayfaru Travel Agency. All rights reserved. Simulated Tourism Enterprise.</p>
+        </div>
+    </footer>
+
+    <div id="booking-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative text-white shadow-2xl">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-6">
+                <span class="text-cyan-400 font-bold uppercase text-xs">Benguet to La Union (4D/3N)</span>
+                <h3 class="text-2xl font-bold text-white mt-1">Book Your Tour</h3>
+                <p class="text-slate-400 text-sm">Only ₱8,300.00 Per Head — All Inclusive Experience</p>
+            </div>
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Full Name</label>
+                    <input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-cyan-400" placeholder="Maria Santos">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Email</label>
+                        <input type="email" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-cyan-400" placeholder="maria@gmail.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Phone</label>
+                        <input type="tel" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-cyan-400" placeholder="09987654321">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Number of Pax</label>
+                    <input type="number" min="1" value="1" required class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-cyan-400">
+                </div>
+                <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-pine-900 font-extrabold py-3.5 rounded-xl shadow-lg transition-colors text-sm mt-2">
+                    Confirm Reservation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Message Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-emerald-500/50 rounded-3xl max-w-md w-full p-8 text-center text-white shadow-2xl space-y-4">
+            <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 border border-emerald-400/40 rounded-full flex items-center justify-center text-3xl mx-auto">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold">Booking Request Received!</h3>
+            <p class="text-slate-300 text-sm">Thank you for choosing Wayfaru Travel Agency. Our team will contact you shortly via phone and email to finalize your 4D/3N Benguet to La Union adventure.</p>
+            <button onclick="closeSuccessModal()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Day tab switcher
+        function switchDay(dayNum) {
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById(`day-btn-${i}`);
+                const content = document.getElementById(`day-content-${i}`);
+                if (i === dayNum) {
+                    btn.className = "day-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-cyan-500 text-pine-900 shadow-lg transition-all";
+                    content.classList.remove('hidden');
+                } else {
+                    btn.className = "day-tab-btn px-6 py-3 rounded-xl font-bold text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all";
+                    content.classList.add('hidden');
+                }
+            }
+        }
+
+        // Modal controls
+        function openBookingModal() {
+            document.getElementById('booking-modal').classList.remove('hidden');
+        }
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+
+        function handleInquiry(e) {
+            e.preventDefault();
+            document.getElementById('success-modal').classList.remove('hidden');
+            e.target.reset();
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            closeBookingModal();
+            document.getElementById('success-modal').classList.remove('hidden');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
